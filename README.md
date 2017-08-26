@@ -18,8 +18,40 @@
 
 * HANDLE LOGIC IN MAIN APPLICATION STATE (No need for MOBX in this simplified example, have all buttons function as functional/pure components. Receive all functions as props from master component.)
 
+* NO PREACT ROUTER (This is a simple application, multiple routes are unnecessary for now.)
+
 * FRONT END ONLY. (No need for server logic in this example. Save the node event loop, event emitter, and microservice architecture experiments for another time.)
 
 * FULL TEST COVERAGE. (NO untested logic, tests first.)
+
+### TO-DO : 
+
+* Build out components for calculator.
+
+* Establish click handling and event binding for components.
+
+* Design components.
+
+* Pseudocode and architect the logic for this app.
+
+* Write tests to 100% coverage.
+
+* Remove unnecessary dependencies set in place by CLI.
+
+* Make ESlint pass.
+
+* Documentation.
+
+### Completed : 
+
+* Test structure setup.
+
+* Favicon
+
+* Design scheme from coder.com
+
+* Layout setup
+
+
 
 

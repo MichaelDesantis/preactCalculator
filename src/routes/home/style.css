@@ -1,5 +1,14 @@
+/* 
+    Below calc sets main div heigh equal to full page height minus height of header.
+    Setting offset of bottom zero to ensure main div sticks to bottom of page.
+    Setting width equal to full viewport width with vw.
+ */
 .home {
-	padding: 56px 20px;
-	min-height: 100%;
-	width: 100%;
+    position:absolute;
+    bottom:0;
+	min-height: calc(100% - 56px);
+	width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
