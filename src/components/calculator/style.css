@@ -1,0 +1,9 @@
+.calculatorMainDiv{
+    min-width:320px;
+    min-height:320px;
+    border: solid #F3C730;
+    border-width: 18px 8px 6px 8px;
+    box-shadow: -20px 20px 35px #CFCFCF;
+    border-radius: 3px;
+    display:grid;
+}
