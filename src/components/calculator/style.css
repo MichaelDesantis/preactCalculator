@@ -5,5 +5,6 @@
     border-width: 18px 8px 6px 8px;
     box-shadow: -20px 20px 35px #CFCFCF;
     border-radius: 3px;
-    display:grid;
+    display:flex;
+    flex-direction: column;
 }

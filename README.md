@@ -8,6 +8,10 @@
 
 * Avoid adding additional dependencies. You should be able to do this with vanilla CSS/JS and preact's methods. (We're only requiring CHAI for testing.)
 
+* It is apparently impossible to pass CSS styles as props to other nested components. Especially when each child component requires a unique position attribute to work with CSS native grid. Eval string type prop to JS for CSS class styling fails. Even when using examples straight out of Preact documentation.
+
+* I may have to try creating multiple classes within the same JS file to bypass this issue.
+
 ### Specs:
 
 * USE CSS GRID! (This is a perfect use case for CSS grid. And I could use the practice)
@@ -32,8 +36,6 @@
 
 * Design components.
 
-* Pseudocode and architect the logic for this app.
-
 * Write tests to 100% coverage.
 
 * Remove unnecessary dependencies set in place by CLI.
@@ -51,6 +53,8 @@
 * Design scheme from coder.com
 
 * Layout setup
+
+* Pseudocode and architect the logic for this app. (via pending tests)
 
 
 

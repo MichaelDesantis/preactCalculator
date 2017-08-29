@@ -1,0 +1,73 @@
+.iconButtonGrid{
+    flex:4;
+    margin:0;
+    padding:0;
+    min-height:236.8px;
+    max-height:236.8px;
+    width:100%;
+    display: grid;
+    background-color: lightblue;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(4, 25%);
+    grid-template-areas:
+        "aa ab ac ad"
+        "ba bb bc bd"
+        "ca cb cc cd"
+        "da db dc dd";
+}
+
+.iconButtonGrid span{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.aa{
+    grid-area: aa;
+}
+.ab{
+    grid-area: ab;
+}
+.ac{
+    grid-area: ac;
+}
+.ad{
+    grid-area: ad;
+}
+.ba{
+    grid-area: ba;
+}
+.bb{
+    grid-area: bb;
+}
+.bc{
+    grid-area: bc;
+}
+.bd{
+    grid-area: bd;
+}
+.ca{
+    grid-area: ca;
+}
+.cb{
+    grid-area: cb;
+}
+.cc{
+    grid-area: cc;
+}
+.cd{
+    grid-area: cd;
+}
+.da{
+    grid-area: da;
+}
+.db{
+    grid-area: db;
+}
+.dc{
+    grid-area: dc;
+}
+.dd{
+    grid-area: dd;
+}
