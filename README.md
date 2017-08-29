@@ -10,7 +10,7 @@
 
 * It is apparently impossible to pass CSS styles as props to other nested components. Especially when each child component requires a unique position attribute to work with CSS native grid. Eval string type prop to JS for CSS class styling fails. Even when using examples straight out of Preact documentation.
 
-* I may have to try creating multiple classes within the same JS file to bypass this issue.
+* I may have to try creating multiple classes within the same JS file to bypass the above issue.
 
 ### Specs:
 
@@ -30,11 +30,7 @@
 
 ### TO-DO : 
 
-* Build out components for calculator.
-
 * Establish click handling and event binding for components.
-
-* Design components.
 
 * Write tests to 100% coverage.
 
@@ -52,9 +48,13 @@
 
 * Design scheme from coder.com
 
+* Build out components for calculator.
+
 * Layout setup
 
 * Pseudocode and architect the logic for this app. (via pending tests)
+
+* Design components (CSS).
 
 
 

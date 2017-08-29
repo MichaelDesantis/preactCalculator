@@ -3,10 +3,9 @@
     margin:0;
     padding:0;
     min-height:236.8px;
-    max-height:236.8px;
+    max-height:236.9px;
     width:100%;
     display: grid;
-    background-color: lightblue;
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(4, 25%);
     grid-template-areas:
@@ -21,6 +20,24 @@
     justify-content: center;
     align-content: center;
     align-items: center;
+    border:2px solid black; 
+    font-weight: 900;
+    font-size: 1.4em; 
+}
+
+.numberVal{
+    background:linear-gradient(to bottom, hsl(221, 27%, 25%), hsl(221, 27%, 18%) 20%, hsl(221, 27%, 18%) 80%, hsl(221, 27%, 12%));
+    color:#B8C0C0;
+}
+
+.operandVal{
+    background:linear-gradient(to bottom, hsl(213, 62%, 60%), hsl(213, 62%, 50%) 20%, hsl(213, 62%, 50%) 80%, hsl(213, 62%, 45%));
+    color: white;
+}
+
+.equalsBtn{
+    background:linear-gradient(to bottom, hsl(105, 50%, 52%), hsl(105, 50%, 42%) 20%, hsl(105, 50%, 42%) 80%, hsl(105, 50%, 37%));
+    color: white;
 }
 
 .aa{

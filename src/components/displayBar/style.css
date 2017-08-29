@@ -3,10 +3,14 @@
     margin:0;
     padding:0;
     min-height:59.2px;
-    max-height:59.2px;
+    max-height:59.3px;
     width:100%;
     display: flex;
-    background-color: pink;
+    background-color: #FAFAFA;
+    color:#00366D;
+    font-weight: 900;
+    font-size:1.8em;
     align-content: center;
+    align-items:center;
     justify-content: center;
 }
