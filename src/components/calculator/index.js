@@ -30,14 +30,26 @@ export default class Calculator extends Component {
                return eval(execString);
             },
             handleOperandClick:(operand)=>{
-                console.log("clicked on operand " + operand);
-                if(this.state.operand===""||this.state.operand===undefined){
-                    console.log("operand returned");
-                    //need to update state to set operand
-                }else if(this.state.operand!==""&&this.state.operand!==undefined){
-                    console.log("operand already defined");
-                    //test if second number
-                    //eval if true
+                if(this.state.firstNum!==""&&this.state.firstNum!==undefined){
+                    if(this.state.operand===""||this.state.operand===undefined){
+                        let newOperand = operand;
+                        let newExpressionString = this.state.currentExpressionString + operand;
+                        this.setState({
+                            operand:newOperand,
+                            currentExpressionString:newExpressionString
+                        });
+                    }else if(this.state.operand!==""&&this.state.operand!==undefined){
+                        if(this.state.secondNum!==""&&this.state.secondNum!==undefined){
+                            let result = this.handlers.evaluateExpression(this.state.firstNum,this.state.operand,this.state.secondNum);
+                            let resultString = result.toString();
+                            this.setState({
+                                currentExpressionString:`${resultString}${operand}`,
+                                firstNum:resultString,
+                                operand:operand,
+                                secondNum:""
+                            });
+                        }
+                    }
                 }
             },
             handleNumberClick:(number)=>{
