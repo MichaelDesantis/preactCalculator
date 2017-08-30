@@ -25,6 +25,15 @@
     font-size: 1.4em; 
 }
 
+.iconButtonGrid span:hover{
+    font-size:1.3em;
+    font-weight: 900;
+}
+
+.iconButtonGrid span:active{
+    color:#00366D;
+}
+
 .numberVal{
     background:linear-gradient(to bottom, hsl(221, 27%, 25%), hsl(221, 27%, 18%) 20%, hsl(221, 27%, 18%) 80%, hsl(221, 27%, 12%));
     color:#B8C0C0;

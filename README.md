@@ -12,6 +12,8 @@
 
 * I may have to try creating multiple classes within the same JS file to bypass the above issue.
 
+* I should also learn to use Regex, would have been massively useful during the validations.
+
 ### Specs:
 
 * USE CSS GRID! (This is a perfect use case for CSS grid. And I could use the practice)
@@ -29,8 +31,6 @@
 * FULL TEST COVERAGE. (NO untested logic, tests first.)
 
 ### TO-DO : 
-
-* Establish click handling and event binding for components.
 
 * Write tests to 100% coverage.
 
@@ -55,6 +55,10 @@
 * Pseudocode and architect the logic for this app. (via pending tests)
 
 * Design components (CSS).
+
+* Establish click event binding for components.
+
+* Attempting separating logic into separate file for easy of logic testing. (This could come back to bite me when it comes to updating state)
 
 
 

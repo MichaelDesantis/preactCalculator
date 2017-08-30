@@ -1,7 +1,7 @@
 {
   "name": "preactCalculator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Example calculator built with Preact",
   "main": "index.js",
   "scripts": {
     "test": "mocha && eslint src",
@@ -11,7 +11,7 @@
     "dev": "preact watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Michael Desantis",
   "license": "ISC",
   "eslintConfig": {
     "extends": "eslint-config-synacor"
