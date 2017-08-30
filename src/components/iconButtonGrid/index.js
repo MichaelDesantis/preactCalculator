@@ -4,7 +4,7 @@ import style from './style';
 const IconButtonGrid=(props)=> {
         return (
             <div class={style.iconButtonGrid}>
-                <span class={style.aa, style.numberVal} data-value="1" data-type="integer" onclick={()=>{props.util.handleNumberClick(undefined,1)}}>1</span>
+                <span class={style.aa, style.numberVal} data-value="1" data-type="integer" onclick={props.util.handleNumberClick}>1</span>
                 <span class={style.ab, style.numberVal} data-value="2" data-type="integer" onclick={props.util.handleNumberClick}>2</span>
                 <span class={style.ac, style.numberVal} data-value="3" data-type="integer" onclick={props.util.handleNumberClick}>3</span>
                 <span class={style.ad, style.operandVal} data-value="/" data-type="

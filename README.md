@@ -1,18 +1,20 @@
 ### Notes (mostly for myself for now, I'll turn this into documentation later):
     
-* Preact CLI's test setup fails out of the box on both their lack of a test command and a badly configured ESlint setup (or code written by them that violates their own rules). 
+* Preact CLI's test setup fails out of the box on both their lack of a test command and a badly configured ESlint setup (or code written by them that violates their own validation rules). 
 
-* Switched out preact setup for my own. (I'll eject and config later.)
+* Switched out preact setup for my own. (I'll eject and config later.) EDIT: Their eject setup is a mess. And I'd like to demo the unit tests. Keeping this as Dev CLI build.
 
-* Assumes mocha global install as is.
+* Assumes mocha global install AND preact-cli install as is.
 
 * Avoid adding additional dependencies. You should be able to do this with vanilla CSS/JS and preact's methods. (We're only requiring CHAI for testing.)
 
 * It is apparently impossible to pass CSS styles as props to other nested components. Especially when each child component requires a unique position attribute to work with CSS native grid. Eval string type prop to JS for CSS class styling fails. Even when using examples straight out of Preact documentation.
 
-* I may have to try creating multiple classes within the same JS file to bypass the above issue.
+* I may have to try creating multiple classes within the same JS file to bypass the above issue. EDIT : Yeah, no go on this. CSS-Grid needs to accept strings as grid-area arguments. My program can't discern between a CSS var reference and a js reference. 
 
-* I should also learn to use Regex, would have been massively useful during the validations.
+* I should also learn to use Regex, would have been massively useful during the validations. (Although there is no direct user input, so there is less to validate.)
+
+* Attempting separating logic into separate file for easy of logic testing. (This could come back to bite me when it comes to updating state) EDIT: Opting for direct component methods rather than import. Importing methods that require state awareness from a separate file without a context of state unnecessarily complicates things without a method-decoupling setup like MOBX or Redux. (which is overkill, as we only have 4 methods to this application). I'll just run unit tests on the component directly and attempt to use enzyme (shallow to render out the methods.
 
 ### Specs:
 
@@ -58,7 +60,7 @@
 
 * Establish click event binding for components.
 
-* Attempting separating logic into separate file for easy of logic testing. (This could come back to bite me when it comes to updating state)
+
 
 
 
