@@ -7,7 +7,7 @@ export default class Calculator extends Component {
     constructor(props) {
         super(props);
         this.state={
-            currentExpressionString:"4",
+            currentExpressionString:"",
             firstNum:"",
             operand:"",
             secondNum:""
@@ -30,21 +30,39 @@ export default class Calculator extends Component {
                return eval(execString);
             },
             handleOperandClick:(operand)=>{
-                console.log("clicked on operand!");
+                console.log("clicked on operand " + operand);
                 if(this.state.operand===""||this.state.operand===undefined){
                     console.log("operand returned");
                     //need to update state to set operand
-                }else if(state.operand!==""&&state.operand!==undefined){
+                }else if(this.state.operand!==""&&this.state.operand!==undefined){
                     console.log("operand already defined");
                     //test if second number
                     //eval if true
                 }
             },
             handleNumberClick:(number)=>{
-                console.log("clicked on number!");
+                console.log("clicked on number " + number);
+                if(this.state.operand===""||this.state.operand===undefined){
+                    let newFirstNum = this.state.firstNum + number;
+                    let newExpressionString = this.state.currentExpressionString + number;
+                    this.setState({
+                        firstNum:newFirstNum,
+                        currentExpressionString:newExpressionString
+                    });            
+                }else{
+                    let newSecondNum = this.state.secondNum + number;
+                    let newExpressionString = this.state.currentExpressionString + number;
+                    this.setState({
+                        secondNum:newSecondNum,
+                        currentExpressionString:newExpressionString
+                    });
+                }
+        
             },
             handleEqualClick:()=>{
                 console.log("clicked on equals");
+                //evaluate expression
+                //take returned value, set as firstNum
             }
         };
     }

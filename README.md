@@ -42,6 +42,10 @@
 
 * Documentation.
 
+* Modify manifest.json.
+
+* ADD CLEAR BUTTON!!!
+
 ### Completed : 
 
 * Test structure setup.
