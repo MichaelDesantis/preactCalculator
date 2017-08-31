@@ -6,6 +6,7 @@
     max-height:59.3px;
     width:100%;
     display: flex;
+    flex-direction: row;
     background-color: #FAFAFA;
     color:#00366D;
     font-weight: 900;
@@ -14,3 +15,4 @@
     align-items:center;
     justify-content: center;
 }
+

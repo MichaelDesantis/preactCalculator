@@ -10,7 +10,8 @@ export default class Calculator extends Component {
             currentExpressionString:"",
             firstNum:"",
             operand:"",
-            secondNum:""
+            secondNum:"",
+            isActive:true
         };
         this.handlers = {
             evaluateExpression:(firstNum,operand,secondNum)=>{
@@ -75,6 +76,9 @@ export default class Calculator extends Component {
                 console.log("clicked on equals");
                 //evaluate expression
                 //take returned value, set as firstNum
+            },
+            resetGame:()=>{
+                console.log("reset game");
             }
         };
     }
@@ -83,7 +87,7 @@ export default class Calculator extends Component {
         return (
             <div class={style.calculatorMainDiv}>
                 <DisplayBar displayMessage={this.state.currentExpressionString}/>
-                <IconButtonGrid util={this.handlers}/>
+                <IconButtonGrid util={this.handlers} isActive={this.state.isActive}/>
             </div>
         );
     }

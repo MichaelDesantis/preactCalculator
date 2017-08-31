@@ -49,6 +49,13 @@
     color: white;
 }
 
+.resetBtn{
+    background:linear-gradient(to bottom, hsl(358, 67%, 55%), hsl(358, 67%, 43%) 20%, hsl(358, 67%, 43%) 80%, hsl(358, 67%, 35%));
+    color: white;
+    /* Important added to override .iconGrid span and limit font-size for this one button state, else font size causes layout breakage ( &#8634; character is over-sized in ASCII compared to alphanumeric characters)*/
+    font-size: 20px !important;
+}
+
 .aa{
     grid-area: aa;
 }
