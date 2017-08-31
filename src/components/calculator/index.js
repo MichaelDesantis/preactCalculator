@@ -58,6 +58,9 @@ export default class Calculator extends Component {
             handleNumberClick:(number)=>{
                 if(this.state.isActive===true){
                     if(this.state.operand===""||this.state.operand===undefined){
+                        if(this.state.firstNum===""&&number==="."){
+                            number="0.";
+                        }
                         let newFirstNum = this.state.firstNum + number;
                         let newExpressionString = this.state.currentExpressionString + number;
                         this.setState({
@@ -65,6 +68,9 @@ export default class Calculator extends Component {
                             currentExpressionString:newExpressionString
                         });            
                     }else{
+                        if(this.state.secondNum===""&&number==="."){
+                            number="0.";
+                        }
                         let newSecondNum = this.state.secondNum + number;
                         let newExpressionString = this.state.currentExpressionString + number;
                         this.setState({

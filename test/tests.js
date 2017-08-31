@@ -1,5 +1,5 @@
 const chai = require('chai');
-const expect = chai.expect;
+const {expect} = chai;
 
 //Sanity check
 describe('My unit testing setup',function(){
@@ -49,11 +49,11 @@ describe('My Main Component methods',()=>{
 
     xit('Evaluates an expression when valid, and sets that as the starting (or final) value for future calculations',()=>{});
 
-    xit('Sets the operand and second value back to undefined after an evaluation',()=>{
+    xit('Sets the operand and second value back to empty string after an evaluation',()=>{
 
     });
 
-    xit('Allows a second operand to be selected without effecting the previous value prematurely',()=>{
+    xit('Allows a second operand to be selected without evaluating the previous value prematurely',()=>{
 
     });
 

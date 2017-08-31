@@ -18,6 +18,26 @@
 
 * eval() WILL NOT ACCEPT A NON-STRING OPERAND. It'll handle integers just fine, but unquote an operand and so help you god your application is doomed! I'm handling all calculation-critical data as a string to ensure that this does not happen.
 
+* On the topic of testing, the library itself has open issues related to testing = https://github.com/developit/preact/issues/658  Their workaround is to use a little known library called https://github.com/developit/preact-jsx-chai/
+
+* The testing config is a pain. Babel configs hiddel by preact-cil built. Cannot access to config. Getting "unexpected token 'import' even when I place the test file in the same dir as the component itself." Tests will have to wait. Done over again, I'd have to implement another alternative to allow for separated function testing.
+
+* On the topic of testing, here's a ton of issues related to it
+
+    * https://github.com/developit/preact-compat/issues/233
+
+    * https://github.com/developit/preact/issues/146
+
+    * https://gist.github.com/robertknight/88e9d10cff9269c55d453e5fb8364f47 (sadly, the lack of intuitive webpack configuration and setup still leads to failure with this method)
+
+    * https://github.com/developit/preact/issues/658 (OPEN ISSUE, difficult preact test setup is a known problem with no current solution.)
+
+    * https://github.com/developit/preact/issues/560 (touches on how Preact is opinionated and requires karma as another dependency.)
+
+    * https://gist.github.com/developit/9b0bb57b3e001de67814c7f4de9cbfbf (This was what I attempted first. No luck with that one either.)
+
+    * https://preactjs.com/guide/unit-testing-with-enzyme (Their documentation is literally one section. And offers no alternative to their exact karma setup. )
+
 ### Specs:
 
 * USE CSS GRID! (This is a perfect use case for CSS grid. And I could use the practice)
@@ -32,19 +52,17 @@
 
 * FRONT END ONLY. (No need for server logic in this example. Save the node event loop, event emitter, and microservice architecture experiments for another time.)
 
-* FULL TEST COVERAGE. (NO untested logic.)
+* FULL TEST COVERAGE. (NO untested logic.) EDIT: Their test setup has MAJOR issues!
+
+* Curently scores higher on lightbox evaluation on ALL 4 categories of PWA, Performance, Accessibility, AND Best practices when compared to coder.com's current website.
 
 ### TO-DO : 
 
-* Write tests to 100% coverage.
+* Write tests to 100% coverage. (This will have to wait, the state of testing in preact is a mess.)
 
-* Remove unnecessary dependencies set in place by CLI.
-
-* Make ESlint pass.
+* Make ESlint pass. (I indent using 4 spaces. ESlint preact default plugin is set to tabs which is causing errors to be thrown. Regardless, the setup is in place to plug-and-play any eslint config setup.)
 
 * Documentation.
-
-* Modify manifest.json.
 
 ### Completed : 
 
@@ -64,10 +82,15 @@
 
 * Establish click event binding for components.
 
-* ADD CLEAR BUTTON!!!
+* Add clear button.
 
+* Modify manifest.json.
 
+* Remove unnecessary dependencies/components set in place by CLI.
 
+### Known problems : 
+
+* Hitting '.' repeatedly causes an error.
 
 
 
