@@ -2,17 +2,17 @@
 
 I built this app as part of a coding challenge for a Frontend Developer postion with a startup in downtown Austin. This app is a simple calculator using Preact, CSS-Grid, and Flexbox.
 
-### Table of contents
+## Table of contents
 
-* [quick start](#Installation)
+* [quick start](#installation)
 
-* [design concepts](#Design)
+* [design concepts](#design)
 
-* [technology used](#Specs)
+* [technology used](#specs)
 
-* [testing and build process](#Tests)
+* [testing and build process](#tests)
 
-### Installation
+## Installation
 
 To test or view this app on your local machine, clone this repository. Navigate to your newly cloned repository and run the following commands:
 
@@ -34,7 +34,7 @@ Navigate to [http://localhost:8080/](http://localhost:8080/) and have fun!
 
   * If for some reason it doesn't run correctly, you may need to globally install the preact-cli.
 
-### Design
+## Design
 
 No design specs were provided for this challenge. I was given free reign to design as I pleased. Keeping in mind the job for which I was applying, I opted to cater my product to the client. As such, the color scheme, palette, and even favicon are intentionally similar to their homepage. (The idea being that the client has already displayed a preference for this design scheme as they've chosen the exact same design for their production website. It also displays attention to detail.)
 
@@ -50,105 +50,80 @@ I used this coding challenge as an opportunity to play with the new native CSS G
 
 I also used flexbox to center the content and elements. I am a huge fan of flexbox and strongly prefer it over other third-party grid solutions or using floats for element positioning. 
 
-This app is also probably the first time I've had a justifiable use case for the calc() feature! I'm using calc() to set the main page height equal to 100vh minus the height of the header bar and offsetting to ensure the elements don't overlap.
+This app is also probably the first time I've had a justifiable use case for the calc() feature! I'm using calc() to set the main page height equal to 100vh minus the height of the header bar and a bottom offset to ensure the elements don't overlap.
+
+Throughout the design process, I attempted to adhere to some basic UI design principles as outlined here https://medium.com/@erikdkennedy/7-rules-for-creating-gorgeous-ui-part-1-559d4e805cda
  
-### Specs
+## Specs
 
-### Tests
+This app uses:
 
-### Notes (mostly for myself for now, I'll turn this into documentation later):
-    
-* Preact CLI's test setup fails out of the box on both their lack of a test command and a badly configured ESlint setup (or code written by them that violates their own validation rules). 
+* CSS native grid
 
-* Switched out preact setup for my own. (I'll eject and config later.) EDIT: Their eject setup is a mess. And I'd like to demo the unit tests. Keeping this as Dev CLI build. DOUBLE EDIT: Their build command doesn't work either! 
+* Flexbox
 
-* Assumes mocha global install AND preact-cli install as is.
+* Preact
 
-* Avoid adding additional dependencies. You should be able to do this with vanilla CSS/JS and preact's methods. (We're only requiring CHAI for testing.)
+* Preact-router 
 
-* It is apparently impossible to pass CSS styles as props to other nested components. Especially when each child component requires a unique position attribute to work with CSS native grid. Eval string type prop to JS for CSS class styling fails. Even when using examples straight out of Preact documentation.
+* Preact CLI
 
-* I may have to try creating multiple classes within the same JS file to bypass the above issue. EDIT : Yeah, no go on this. CSS-Grid needs to accept strings as grid-area arguments. My program can't discern between a CSS var reference and a js reference. 
+* Mocha
 
-* I should also learn to use Regex, would have been massively useful during the validations. (Although there is no direct user input, so there is less to validate.)
+* Chai
 
-* Attempting separating logic into separate file for easy of logic testing. (This could come back to bite me when it comes to updating state) EDIT: Opting for direct component methods rather than import. Importing methods that require state awareness from a separate file without a context of state unnecessarily complicates things without a method-decoupling setup like MOBX or Redux. (which is overkill, as we only have 4 methods to this application). I'll just run unit tests on the component directly and attempt to use enzyme (shallow to render out the methods.
+* ESlint
 
-* eval() WILL NOT ACCEPT A NON-STRING OPERAND. It'll handle integers just fine, but unquote an operand and so help you god your application is doomed! I'm handling all calculation-critical data as a string to ensure that this does not happen.
+The CSS native grid is pretty impressive, although browser support can be lacking in older browsers. It is apparently incredibly difficult to pass CSS styles as props to other nested components. Especially when each child component requires a unique position attribute to work with CSS native grid. Evaluating string type props into a reference for CSS class styling fails. Even when using examples straight out of Preact documentation. CSS-Grid doesn't accept strings as grid-area arguments. My program can't discern between a CSS var reference and a JS reference.
 
-* On the topic of testing, the library itself has open issues related to testing = https://github.com/developit/preact/issues/658  Their workaround is to use a little known library called https://github.com/developit/preact-jsx-chai/
+Flexbox is amazing and has better browser support than CSS native Grid. No more need be said about it.
 
-* The testing config is a pain. Babel configs hiddel by preact-cil built. Cannot access to config. Getting "unexpected token 'import' even when I place the test file in the same dir as the component itself." Tests will have to wait. Done over again, I'd have to implement another alternative to allow for separated function testing.
+Preact is an interesting technology. I like that it's lightweight, I also like its fast functionality and that it's a near perfect match for React but with an MIT license. I do feel like some of the build tools for it are lacking when compared to the React ecosystem.
 
-* On the topic of testing, here's a ton of issues related to it
+Preact-router in this app is just a minimalistic setup. I have not dealt with it enough to talk about it in depth.
 
-    * https://github.com/developit/preact-compat/issues/233
+Preact CLI's setup fails out of the box on both their lack of a test command and a badly configured ESlint setup (or code written by them that violates their own validation rules). Testing setup is lacking and I had to configure my own (more on this later). For any build system config the use of karma is just about mandatory from what I gather. Their build command also fails.  
 
-    * https://github.com/developit/preact/issues/146
+I use mocha and chai for my test suite setup. It's a time tested classic.
 
-    * https://gist.github.com/robertknight/88e9d10cff9269c55d453e5fb8364f47 (sadly, the lack of intuitive webpack configuration and setup still leads to failure with this method)
+ESlint was included out of the box (failing, will be covered in more detail later).
 
-    * https://github.com/developit/preact/issues/658 (OPEN ISSUE, difficult preact test setup is a known problem with no current solution.)
+All application logic in contained in the calculator component. All others are pure/functional components. Had I needed to build a more complex app, MOBX or Redux would have been in order. 
 
-    * https://github.com/developit/preact/issues/560 (touches on how Preact is opinionated and requires karma as another dependency.)
+MOBX or Redux would also have helped with function testing. I initially attempted to decouple the logic from the component, but it's difficult to preserve the context of 'this' in regards to logic that modifies state. Hence I opted to write the logic in the component directly. Importing methods that require state awareness from a separate file without a context of state unnecessarily complicates things (it's overkill anyways as we only have a few methods in this application).
 
-    * https://gist.github.com/developit/9b0bb57b3e001de67814c7f4de9cbfbf (This was what I attempted first. No luck with that one either.)
+On the topic of state, the JavaScript eval() WILL NOT ACCEPT A NON-STRING OPERAND. It'll handle integers just fine, but unquote an operand and so help you god your application is doomed! I'm handling all calculation-critical data in the state as a string to ensure that this does not happen.
 
-    * https://preactjs.com/guide/unit-testing-with-enzyme (Their documentation is literally one section. And offers no alternative to their exact karma setup. )
+On a random note, this app run from localhost curently scores higher on lightbox evaluation in ALL 4 categories of PWA, Performance, Accessibility, AND Best practices when compared to the clients current production website.
 
-### Specs:
+I attempted to keep additional dependencies at a minimum during application development. 
 
-* USE CSS GRID! (This is a perfect use case for CSS grid. And I could use the practice)
+## Tests
 
-* USE FLEXBOX! (Again, for practice. And because it makes life easier.)
+The test suite can be run with `yarn test` or `npm test`. The test suite assumes a global mocha install on your machine.
 
-* FOLLOW DESIGN RULES (layout first, mobile first, grayscale before color.)
+The Preact library itself has open issues related to testing = [https://github.com/developit/preact/issues/658](https://github.com/developit/preact/issues/658)  Their workaround is to use a little known library called [https://github.com/developit/preact-jsx-chai/](https://github.com/developit/preact-jsx-chai/) unfortunately that library didn't seem to work for me. 
 
-* HANDLE LOGIC IN MAIN APPLICATION STATE (No need for MOBX in this simplified example, have all buttons function as functional/pure components. Receive all functions as props from master component.)
+The testing config is a pain. Babel configs are hidden by preact-cil. Cannot access  config. Getting "unexpected token 'import' even when I place the test file in the same dir as the component itself." Tests will have to wait. Done over again, I'd have to implement another alternative to allow for separated function testing.
 
-* NO PREACT ROUTER (This is a simple application, multiple routes are unnecessary for now.)
+On the topic of testing, here's a ton of issues related to it:
 
-* FRONT END ONLY. (No need for server logic in this example. Save the node event loop, event emitter, and microservice architecture experiments for another time.)
+  * [https://github.com/developit/preact-compat/issues/233](https://github.com/developit/preact-compat/issues/233)
 
-* FULL TEST COVERAGE. (NO untested logic.) EDIT: Their test setup has MAJOR issues!
+  * [https://github.com/developit/preact/issues/146](https://github.com/developit/preact/issues/146)
 
-* Curently scores higher on lightbox evaluation on ALL 4 categories of PWA, Performance, Accessibility, AND Best practices when compared to coder.com's current website.
+  * [https://gist.github.com/robertknight/88e9d10cff9269c55d453e5fb8364f47](https://gist.github.com/robertknight/88e9d10cff9269c55d453e5fb8364f47) (sadly, the lack of intuitive webpack configuration and setup still leads to failure with this method)
 
-### TO-DO : 
+  * [https://github.com/developit/preact/issues/658](https://github.com/developit/preact/issues/658) (OPEN ISSUE, difficult preact test setup is a known problem with no current solution.)
 
-* Write tests to 100% coverage. (This will have to wait, the state of testing in preact is a mess.)
+  * [https://github.com/developit/preact/issues/560](https://github.com/developit/preact/issues/560) (touches on how Preact is opinionated and requires karma as another dependency.)
 
-* Make ESlint pass. (I indent using 4 spaces. ESlint preact default plugin is set to tabs which is causing errors to be thrown. Regardless, the setup is in place to plug-and-play any eslint config setup.)
+  * [https://gist.github.com/developit/9b0bb57b3e001de67814c7f4de9cbfbf](https://gist.github.com/developit/9b0bb57b3e001de67814c7f4de9cbfbf) (This was what I attempted first. No luck with that one either.)
 
-* Documentation.
+  * [https://preactjs.com/guide/unit-testing-with-enzyme](https://preactjs.com/guide/unit-testing-with-enzyme) (Their documentation is literally one section. And offers no alternative to their exact karma setup.)
 
-### Completed : 
+And on linting, the ESlint fails out-of-the-box. I indent using 4 spaces. ESlint preact default plugin is set to tabs which is causing errors to be thrown. Regardless, the testing setup runs and is in place to plug-and-play any eslint config setup. I'd be able to instantly re-configure this setup to match any client specific requirements.
 
-* Test structure setup.
+## Known problems
 
-* Favicon
-
-* Design scheme from coder.com
-
-* Build out components for calculator.
-
-* Layout setup
-
-* Pseudocode and architect the logic for this app. (via pending tests)
-
-* Design components (CSS).
-
-* Establish click event binding for components.
-
-* Add clear button.
-
-* Modify manifest.json.
-
-* Remove unnecessary dependencies/components set in place by CLI.
-
-### Known problems : 
-
-* Hitting '.' repeatedly causes an error.
-
-
-
+* Hitting '.' repeatedly causes an error. /* so please don't do this :) */
