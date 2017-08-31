@@ -1,12 +1,11 @@
-import { h, Component } from 'preact';
+import { h } from 'preact';
 import style from './style';
 
-export default class DisplayBar extends Component {
-    render() {
-        return (
-            <div class={style.displayBar}>
-                {this.props.displayMessage}
-            </div>
-        );
-    }
+const DisplayBar=(props)=>{
+    return (
+        <div class={style.displayBar}>
+            {props.displayMessage}
+        </div>
+    );
 }
+export default DisplayBar;

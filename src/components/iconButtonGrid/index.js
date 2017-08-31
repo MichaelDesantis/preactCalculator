@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import style from './style';
 
-const IconButtonGrid=(props)=> {
+const IconButtonGrid=(props)=>{
     return (
         <div class={style.iconButtonGrid}>
             <span class={style.aa, style.numberVal} data-value="1" data-type="integer" onclick={()=>{props.util.handleNumberClick("1")}}>1</span>

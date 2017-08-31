@@ -16,11 +16,13 @@
 
 * Attempting separating logic into separate file for easy of logic testing. (This could come back to bite me when it comes to updating state) EDIT: Opting for direct component methods rather than import. Importing methods that require state awareness from a separate file without a context of state unnecessarily complicates things without a method-decoupling setup like MOBX or Redux. (which is overkill, as we only have 4 methods to this application). I'll just run unit tests on the component directly and attempt to use enzyme (shallow to render out the methods.
 
+* eval() WILL NOT ACCEPT A NON-STRING OPERAND. It'll handle integers just fine, but unquote an operand and so help you god your application is doomed! I'm handling all calculation-critical data as a string to ensure that this does not happen.
+
 ### Specs:
 
 * USE CSS GRID! (This is a perfect use case for CSS grid. And I could use the practice)
 
-* USE FLEXBOX + CSS4 spec color rules (Again, for practice)
+* USE FLEXBOX! (Again, for practice. And because it makes life easier.)
 
 * FOLLOW DESIGN RULES (layout first, mobile first, grayscale before color.)
 
@@ -30,7 +32,7 @@
 
 * FRONT END ONLY. (No need for server logic in this example. Save the node event loop, event emitter, and microservice architecture experiments for another time.)
 
-* FULL TEST COVERAGE. (NO untested logic, tests first.)
+* FULL TEST COVERAGE. (NO untested logic.)
 
 ### TO-DO : 
 
@@ -43,8 +45,6 @@
 * Documentation.
 
 * Modify manifest.json.
-
-* ADD CLEAR BUTTON!!!
 
 ### Completed : 
 
@@ -63,6 +63,8 @@
 * Design components (CSS).
 
 * Establish click event binding for components.
+
+* ADD CLEAR BUTTON!!!
 
 
 

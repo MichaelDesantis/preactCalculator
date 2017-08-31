@@ -31,54 +31,70 @@ export default class Calculator extends Component {
                return eval(execString);
             },
             handleOperandClick:(operand)=>{
-                if(this.state.firstNum!==""&&this.state.firstNum!==undefined){
-                    if(this.state.operand===""||this.state.operand===undefined){
-                        let newOperand = operand;
-                        let newExpressionString = this.state.currentExpressionString + operand;
-                        this.setState({
-                            operand:newOperand,
-                            currentExpressionString:newExpressionString
-                        });
-                    }else if(this.state.operand!==""&&this.state.operand!==undefined){
-                        if(this.state.secondNum!==""&&this.state.secondNum!==undefined){
-                            let result = this.handlers.evaluateExpression(this.state.firstNum,this.state.operand,this.state.secondNum);
-                            let resultString = result.toString();
+                if(this.state.isActive===true){
+                    if(this.state.firstNum!==""&&this.state.firstNum!==undefined){
+                        if(this.state.operand===""||this.state.operand===undefined){
+                            let newOperand = operand;
+                            let newExpressionString = this.state.currentExpressionString + operand;
                             this.setState({
-                                currentExpressionString:`${resultString}${operand}`,
-                                firstNum:resultString,
-                                operand:operand,
-                                secondNum:""
+                                operand:newOperand,
+                                currentExpressionString:newExpressionString
                             });
+                        }else if(this.state.operand!==""&&this.state.operand!==undefined){
+                            if(this.state.secondNum!==""&&this.state.secondNum!==undefined){
+                                let result = this.handlers.evaluateExpression(this.state.firstNum,this.state.operand,this.state.secondNum);
+                                let resultString = result.toString();
+                                this.setState({
+                                    currentExpressionString:`${resultString}${operand}`,
+                                    firstNum:resultString,
+                                    operand:operand,
+                                    secondNum:""
+                                });
+                            }
                         }
                     }
                 }
             },
             handleNumberClick:(number)=>{
-                console.log("clicked on number " + number);
-                if(this.state.operand===""||this.state.operand===undefined){
-                    let newFirstNum = this.state.firstNum + number;
-                    let newExpressionString = this.state.currentExpressionString + number;
-                    this.setState({
-                        firstNum:newFirstNum,
-                        currentExpressionString:newExpressionString
-                    });            
-                }else{
-                    let newSecondNum = this.state.secondNum + number;
-                    let newExpressionString = this.state.currentExpressionString + number;
-                    this.setState({
-                        secondNum:newSecondNum,
-                        currentExpressionString:newExpressionString
-                    });
+                if(this.state.isActive===true){
+                    if(this.state.operand===""||this.state.operand===undefined){
+                        let newFirstNum = this.state.firstNum + number;
+                        let newExpressionString = this.state.currentExpressionString + number;
+                        this.setState({
+                            firstNum:newFirstNum,
+                            currentExpressionString:newExpressionString
+                        });            
+                    }else{
+                        let newSecondNum = this.state.secondNum + number;
+                        let newExpressionString = this.state.currentExpressionString + number;
+                        this.setState({
+                            secondNum:newSecondNum,
+                            currentExpressionString:newExpressionString
+                        });
+                    }
                 }
-        
             },
             handleEqualClick:()=>{
-                console.log("clicked on equals");
-                //evaluate expression
-                //take returned value, set as firstNum
+                if(this.state.firstNum!==""&&this.state.operand!==""&&this.state.secondNum!==""){
+                    let result = this.handlers.evaluateExpression(this.state.firstNum,this.state.operand,this.state.secondNum);
+                    let resultString = result.toString();
+                    this.setState({
+                        currentExpressionString:`${resultString}`,
+                        firstNum:"",
+                        operand:"",
+                        secondNum:"",
+                        isActive:false
+                    });
+                }
             },
             resetGame:()=>{
-                console.log("reset game");
+                this.setState({
+                    currentExpressionString:"",
+                    firstNum:"",
+                    operand:"",
+                    secondNum:"",
+                    isActive:true
+                });
             }
         };
     }
