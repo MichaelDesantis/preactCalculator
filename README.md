@@ -1,8 +1,66 @@
+# PREACT CALCULATOR 
+
+I built this app as part of a coding challenge for a Frontend Developer postion with a startup in downtown Austin. This app is a simple calculator using Preact, CSS-Grid, and Flexbox.
+
+### Table of contents
+
+* [quick start](#Installation)
+
+* [design concepts](#Design)
+
+* [technology used](#Specs)
+
+* [testing and build process](#Tests)
+
+### Installation
+
+To test or view this app on your local machine, clone this repository. Navigate to your newly cloned repository and run the following commands:
+
+  * `yarn`
+
+Or alternatively for the NPM user:
+
+  * `npm install`
+
+Then run:
+  
+  * `yarn start`
+
+Or alternatively for NPM users:
+
+  * `npm start`
+
+Navigate to [http://localhost:8080/](http://localhost:8080/) and have fun!
+
+  * If for some reason it doesn't run correctly, you may need to globally install the preact-cli.
+
+### Design
+
+No design specs were provided for this challenge. I was given free reign to design as I pleased. Keeping in mind the job for which I was applying, I opted to cater my product to the client. As such, the color scheme, palette, and even favicon are intentionally similar to their homepage. (The idea being that the client has already displayed a preference for this design scheme as they've chosen the exact same design for their production website. It also displays attention to detail.)
+
+Here are photos for comparision.
+
+* Original website
+![alt tag](coderMainPage.png)
+
+* Calculator App
+![alt tag](coderCalculator.png)
+
+I used this coding challenge as an opportunity to play with the new native CSS Grid (something I've been meaning to do for a while). CSS Grid is amazing, but apparently it's near impossible to pass grid-area properties as props. 
+
+I also used flexbox to center the content and elements. I am a huge fan of flexbox and strongly prefer it over other third-party grid solutions or using floats for element positioning. 
+
+This app is also probably the first time I've had a justifiable use case for the calc() feature! I'm using calc() to set the main page height equal to 100vh minus the height of the header bar and offsetting to ensure the elements don't overlap.
+ 
+### Specs
+
+### Tests
+
 ### Notes (mostly for myself for now, I'll turn this into documentation later):
     
 * Preact CLI's test setup fails out of the box on both their lack of a test command and a badly configured ESlint setup (or code written by them that violates their own validation rules). 
 
-* Switched out preact setup for my own. (I'll eject and config later.) EDIT: Their eject setup is a mess. And I'd like to demo the unit tests. Keeping this as Dev CLI build.
+* Switched out preact setup for my own. (I'll eject and config later.) EDIT: Their eject setup is a mess. And I'd like to demo the unit tests. Keeping this as Dev CLI build. DOUBLE EDIT: Their build command doesn't work either! 
 
 * Assumes mocha global install AND preact-cli install as is.
 
